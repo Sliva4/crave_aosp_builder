@@ -4,6 +4,7 @@
 #!/bin/bash
 
 #Zip download
+echo "Running: rm -rf actions-runner || true"
 rm -rf actions-runner || true
 
   echo "Installing Runner!" #Create folder and download zip
