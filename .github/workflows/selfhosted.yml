@@ -73,6 +73,9 @@ on:
         - 'yes'
         - 'no'
 
+permissions:
+  contents: write
+
 jobs:
   Start-Runner:
     runs-on: ubuntu-latest
@@ -529,7 +532,7 @@ jobs:
         fi && \
 
         # Set up build environment
-        sudo apt-get install libncurses5 ; \
+        sudo apt-get install -y libncurses5 ; \
         export BUILD_USERNAME=${{ github.actor }} ; \
         export BUILD_HOSTNAME=crave ; \
         source build/envsetup.sh && \
