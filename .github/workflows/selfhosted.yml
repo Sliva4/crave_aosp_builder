@@ -539,9 +539,9 @@ jobs:
         sudo ln -s /usr/lib64/libncursesw.so.6.0 /usr/lib64/libncurses.so.5 ; \
         sudo ln -s /usr/lib64/libncursesw.so.6.0 /usr/lib64/libtinfo.so.5 ; \
 
-        ls /usr
-        ls /usr/lib
-        ls /usr/lib64
+        ls /usr ; \
+        ls /usr/lib ; \
+        ls /usr/lib64 ; \
         
         export BUILD_USERNAME=${{ github.actor }} ; \
         export BUILD_HOSTNAME=crave ; \
