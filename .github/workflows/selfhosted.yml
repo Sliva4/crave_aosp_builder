@@ -532,7 +532,10 @@ jobs:
         fi && \
 
         # Set up build environment
-        sudo apt-get install -y libncurses5 ; \
+
+        sudo ln -s /usr/lib/libncursesw.so.6.0 /usr/lib/libncurses.so.5 ; \
+        sudo ln -s /usr/lib/libncursesw.so.6.0 /usr/lib/libtinfo.so.5 ; \
+        
         export BUILD_USERNAME=${{ github.actor }} ; \
         export BUILD_HOSTNAME=crave ; \
         source build/envsetup.sh && \
