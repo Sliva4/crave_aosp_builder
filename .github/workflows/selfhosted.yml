@@ -534,7 +534,7 @@ jobs:
         # Set up build environment
 
         sudo add-apt-repository universe ; \
-        sudo apt-get install -y libncurses5 : \
+        sudo apt-get install -y libncurses5 ; \
         sudo apt-get install -y libncurses6 ; \
         
         export BUILD_USERNAME=${{ github.actor }} ; \
