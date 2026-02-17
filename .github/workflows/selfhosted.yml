@@ -533,9 +533,15 @@ jobs:
 
         # Set up build environment
 
-        sudo add-apt-repository universe ; \
-        sudo apt-get install -y libncurses5 ; \
-        sudo apt-get install -y libncurses6 ; \
+        sudo ln -s /usr/lib/libncursesw.so.6.0 /usr/lib/libncurses.so.5 ; \
+        sudo ln -s /usr/lib/libncursesw.so.6.0 /usr/lib/libtinfo.so.5 ; \
+        
+        sudo ln -s /usr/lib64/libncursesw.so.6.0 /usr/lib64/libncurses.so.5 ; \
+        sudo ln -s /usr/lib64/libncursesw.so.6.0 /usr/lib64/libtinfo.so.5 ; \
+
+        ls /usr
+        ls /usr/lib
+        ls /usr/lib64
         
         export BUILD_USERNAME=${{ github.actor }} ; \
         export BUILD_HOSTNAME=crave ; \
