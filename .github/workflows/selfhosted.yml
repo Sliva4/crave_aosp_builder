@@ -533,15 +533,24 @@ jobs:
 
         # Set up build environment
 
-        sudo ln -s /usr/lib/libncursesw.so.6.0 /usr/lib/libncurses.so.5 ; \
-        sudo ln -s /usr/lib/libncursesw.so.6.0 /usr/lib/libtinfo.so.5 ; \
-        
-        sudo ln -s /usr/lib64/libncursesw.so.6.0 /usr/lib64/libncurses.so.5 ; \
-        sudo ln -s /usr/lib64/libncursesw.so.6.0 /usr/lib64/libtinfo.so.5 ; \
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/libncurses.so.5 ; \
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/libtinfo.so.5 ; \
+
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/aarch64-linux-gnu/libncurses.so.5 ; \
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/aarch64-linux-gnu/libtinfo.so.5 ; \
+
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/arm-linux-gnueabi/libncurses.so.5 ; \
+        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/arm-linux-gnueabi/libtinfo.so.5 ; \
 
         ls /usr ; \
         ls /usr/lib ; \
-        ls /usr/lib64 ; \
+        echo "/usr/lib/aarch64-linux-gnu" ; \
+        ls /usr/lib/aarch64-linux-gnu ; \
+        echo "/usr/lib/x86_64-linux-gnu" ; \
+        ls /usr/lib/x86_64-linux-gnu ; \
+        echo "/usr/lib/arm-linux-gnueabi" ; \
+        ls /usr/lib/arm-linux-gnueabi ; \
+        ls /usr/lib/clang ; \
         
         export BUILD_USERNAME=${{ github.actor }} ; \
         export BUILD_HOSTNAME=crave ; \
