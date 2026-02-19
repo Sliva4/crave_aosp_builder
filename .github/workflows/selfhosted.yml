@@ -539,15 +539,12 @@ jobs:
         sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/x86_64-linux-gnu/libncurses.so.5 ; \
         sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/x86_64-linux-gnu/libtinfo.so.5 ; \
 
-        ls /usr ; \
-        ls /usr/lib ; \
-        echo "/usr/lib/aarch64-linux-gnu" ; \
-        ls /usr/lib/aarch64-linux-gnu ; \
         echo "/usr/lib/x86_64-linux-gnu" ; \
         ls /usr/lib/x86_64-linux-gnu ; \
-        echo "/usr/lib/arm-linux-gnueabi" ; \
-        ls /usr/lib/arm-linux-gnueabi ; \
-        ls /usr/lib/clang/19 ; \
+
+        sudo find / -name libncurses.so.6 ; \
+
+        sudo find / -name libncursesw.so.6 ; \
         
         export BUILD_USERNAME=${{ github.actor }} ; \
         export BUILD_HOSTNAME=crave ; \
