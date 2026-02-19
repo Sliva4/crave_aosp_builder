@@ -533,18 +533,13 @@ jobs:
 
         # Set up build environment
 
-        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/libncurses.so.5 ; \
-        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/libtinfo.so.5 ; \
-
-        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/x86_64-linux-gnu/libncurses.so.5 ; \
-        sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6.0 /usr/lib/x86_64-linux-gnu/libtinfo.so.5 ; \
-
-        echo "/usr/lib/x86_64-linux-gnu" ; \
-        ls /usr/lib/x86_64-linux-gnu ; \
+        sudo find / -name libncurses.so.6 | while IFS= read -r line; do ln -s $line `echo "$line" | sed 's/libncurses.so.6/libncurses.so.5/'`; done ; \
 
         sudo find / -name libncurses.so.6 ; \
 
         sudo find / -name libncursesw.so.6 ; \
+
+        sudo find / -name libncurses.so.5 ; \
         
         export BUILD_USERNAME=${{ github.actor }} ; \
         export BUILD_HOSTNAME=crave ; \
