@@ -533,7 +533,7 @@ jobs:
 
         # Set up build environment
 
-        sudo find / -name libncurses.so.6 | while IFS= read -r line; do sudo ln -s \$line $(echo "\$line" | sed 's/libncurses.so.6/libncurses.so.5/'); done ; \
+        sudo find / -name libncurses.so.6 | while IFS= read -r line; do sudo ln -s \$line \$(echo "\$line" | sed 's/libncurses.so.6/libncurses.so.5/'); done ; \
 
         sudo find / -name libncurses.so.6 ; \
 
